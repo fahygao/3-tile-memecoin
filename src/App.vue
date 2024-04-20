@@ -373,4 +373,8 @@ body{
   height: 100%;
   background-color: #ff8500;
 }
+
+html {
+  touch-action: manipulation;
+}
 </style>
