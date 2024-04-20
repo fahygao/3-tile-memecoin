@@ -106,9 +106,9 @@ onMounted(() => {
 
 <template>
   <div flex flex-col w-full h-full>
-    <div text-44px text-center w-full color="#fff" fw-900 h-60px flex items-center justify-center mt-10px>
-      MEMECOINS 3 TILES
-    </div>
+    <div class="header">
+  MEMECOINS 3 TILES
+</div>
     <div ref="containerRef" flex-1 flex>
       <div w-full relative flex-1>
         <template v-for="item in nodes" :key="item.id">
@@ -202,6 +202,81 @@ body{
   background-color: rgb(0, 0, 0);
 }
 
+.header {
+  font-size: 36px; /* Adjusted font size */
+  text-align: center;
+  color: #fff;
+  font-weight: 900;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Adjustments for iPhone 15 Pro Max */
+@media only screen 
+  and (device-width: 428px) 
+  and (device-height: 926px) 
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+  .header {
+    font-size: 32px; /* Further adjusted font size */
+  }
+}
+
+/* Adjustments for iPhone 15 Pro Max */
+@media only screen 
+  and (device-width: 428px) 
+  and (device-height: 926px) 
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+  .slide-fade-enter-active {
+    transition: all 0.2s ease-out;
+  }
+
+  .slide-fade-leave-active {
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  .slide-fade-enter-from,
+  .slide-fade-leave-to {
+    transform: translateY(20vh); /* Adjusted for smaller screen */
+    opacity: 0;
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+    opacity: 0;
+  }
+
+  .bounce-enter-active {
+    animation: bounce-in 0.5s;
+  }
+
+  .bounce-leave-active {
+    animation: bounce-in 0.5s reverse;
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.15); /* Adjusted scale */
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+/* General styles */
 .bounce-enter-active {
   animation: bounce-in 0.5s;
 }
