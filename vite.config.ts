@@ -8,5 +8,5 @@ export default defineConfig({
     vue(),
     Unocss(),
   ],
-  base: process.env.NODE_ENV === 'production' ? '/my-project/' : '/',
+  base: process.env.NODE_ENV === 'production' ? 'https://3-tiles-memecoin.vercel.app/' : '/',
 })
