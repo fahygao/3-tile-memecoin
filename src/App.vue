@@ -222,6 +222,7 @@ body{
   and (orientation: portrait) {
   .header {
     font-size: 32px; /* Further adjusted font size */
+    line-height: 1.2;
   }
 }
 
