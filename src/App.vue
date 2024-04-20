@@ -109,7 +109,7 @@ onMounted(() => {
     <div class="header">
   MEMECOINS 3 TILES
 </div>
-    <div ref="containerRef" flex-1 flex>
+    <div ref="containerRef" flex-1 flex style="padding-top: 100px;">
       <div class="container" w-full relative flex-1>
         <template v-for="item in nodes" :key="item.id">
           <transition name="slide-fade">
@@ -141,7 +141,7 @@ onMounted(() => {
       />
     </div>
     <div w-full flex items-center justify-center>
-      <div border="~ 2px dashed #fff" w-295px h-44px flex>
+      <div border="~ 2px dashed #fff" w-315px h-44px flex>
         <template v-for="item in selectedNodes" :key="item.id">
           <transition name="bounce">
             <Card
@@ -228,6 +228,11 @@ body{
   .container {
     padding-top: 50px;
   }
+}
+
+.container {
+  /* Add padding-top for mobile devices */
+  padding-top: 50px;
 }
 
 /* Adjustments for iPhone 15 Pro Max */
