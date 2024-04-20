@@ -223,7 +223,7 @@ body{
   .header {
     font-size: 32px; /* Further adjusted font size */
     line-height: 1.2;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
   }
 }
 
