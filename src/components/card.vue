@@ -3,7 +3,6 @@ import { computed } from 'vue'
 const props = defineProps<Props>()
 const emit = defineEmits(['clickCard'])
 
-// 加载图片资源
 const modules = import.meta.glob('../assets/tutu2/*.png', {
   as: 'url',
   import: 'default',

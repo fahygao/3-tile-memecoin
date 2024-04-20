@@ -110,7 +110,7 @@ onMounted(() => {
   MEMECOINS 3 TILES
 </div>
     <div ref="containerRef" flex-1 flex>
-      <div w-full relative flex-1>
+      <div class="container" w-full relative flex-1>
         <template v-for="item in nodes" :key="item.id">
           <transition name="slide-fade">
             <Card
@@ -224,6 +224,9 @@ body{
     font-size: 32px; /* Further adjusted font size */
     line-height: 1.2;
     padding-bottom: 50px;
+  }
+  .container {
+    padding-top: 50px;
   }
 }
 
