@@ -4,6 +4,9 @@ import Card from './components/card.vue'
 import { useGame } from './core/useGame'
 import { basicCannon, schoolPride } from './core/utils'
 
+
+const initialTime = 100; // Initial time in seconds
+const timeLeft = ref(initialTime); // Current time left (in seconds)
 const containerRef = ref<HTMLElement | undefined>()
 const clickAudioRef = ref<HTMLAudioElement | undefined>()
 const dropAudioRef = ref<HTMLAudioElement | undefined>()
@@ -18,7 +21,25 @@ const LevelConfig = [
   { cardNum: 15, layerNum: 6, trap: false },
 ]
 
+// Simulate countdown decrementing timeLeft every second
+let countdownInterval: NodeJS.Timeout | null = null; // Explicitly type countdownInterval
+
+// Function to start the countdown timer
+const startCountdown = () => {
+  countdownInterval = setInterval(() => {
+    if (timeLeft.value > 0) {
+      timeLeft.value -= 1;
+    } else {
+      clearInterval(countdownInterval!); // Use non-null assertion operator
+      handleLose(); // Call lose logic when time runs out
+    }
+  }, 1000);
+};
+
+
+
 const isWin = ref(false)
+
 
 const {
   nodes,
@@ -43,6 +64,8 @@ const {
     loseCallback: handleLose,
   },
 })
+
+
 
 function handleClickCard() {
   if (clickAudioRef.value?.paused) {
@@ -81,8 +104,7 @@ function handleWin() {
 function handleLose() {
   loseAudioRef.value?.play()
   setTimeout(() => {
-    alert('Mannn, you have filled all the space. Try again!')
-    // window.location.reload()
+    alert('Mannn, you loss. Try again!')
     nodes.value = []
     removeList.value = []
     selectedNodes.value = []
@@ -99,15 +121,17 @@ function handleLose() {
   }, 500)
 }
 
+
 onMounted(() => {
-  initData()
-})
+  initData(); // Call initData() when component is mounted
+});
 </script>
 
 <template>
   <div flex flex-col w-full h-full>
     <div class="header">
   MEMECOINS 3 TILES
+  <!-- <div v-if="timeLeft > 0" class="timer">{{ timeLeft }}s</div> -->
 </div>
     <div ref="containerRef" flex-1 flex style="padding-top: 100px;">
       <div class="container" w-full relative flex-1>
@@ -205,13 +229,12 @@ body{
 .header {
   font-size: 36px; /* Adjusted font size */
   text-align: center;
-  color: #fff;
+  color: #ff8500;
   font-weight: 900;
   height: 60px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 /* Adjustments for iPhone 15 Pro Max */
@@ -224,6 +247,7 @@ body{
     font-size: 32px; /* Further adjusted font size */
     line-height: 1.2;
     padding-bottom: 50px;
+    margin-top: 20px;
   }
   .container {
     padding-top: 50px;
@@ -327,5 +351,26 @@ body{
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+
+/* Timer styles */
+.timer {
+  font-size: 24px;
+  color: #ff8500;
+  margin-top: 10px;
+}
+
+/* Progress bar styles */
+.progress {
+  width: 100%;
+  height: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+.progress-inner {
+  height: 100%;
+  background-color: #ff8500;
 }
 </style>
