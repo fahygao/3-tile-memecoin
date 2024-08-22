@@ -130,7 +130,7 @@ onMounted(() => {
 <template>
   <div flex flex-col w-full h-full>
     <div class="header">
-  MEMECOINS 3 TILES
+  3 TILES - $SICK Edition 
   <!-- <div v-if="timeLeft > 0" class="timer">{{ timeLeft }}s</div> -->
 </div>
     <div ref="containerRef" flex-1 flex style="padding-top: 100px;">
@@ -224,7 +224,24 @@ onMounted(() => {
 <style>
 body{
   background-color: rgb(0, 0, 0);
+  position: relative; /* Required for pseudo-element positioning */
+  z-index: 1;
 }
+
+body::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/hero.png'); /* Path to your image */
+  background-size: 50% auto; /* Adjust size: 50% width, auto height */
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* Ensure the image stays behind the content */
+}
+
 
 .header {
   font-size: 36px; /* Adjusted font size */
