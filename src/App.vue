@@ -186,8 +186,6 @@ onMounted(() => {
         Undo
       </button>
     </div>
-    <div w-full color="#fff" fw-600 text-center pb-10px>
-      <span mr-20px>Designer: Fei Gao | original: xlegex</span></div>
     <audio
       ref="clickAudioRef"
       style="display: none;"
@@ -236,7 +234,7 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: url('/images/hero.png'); /* Path to your image */
-  background-size: 50% auto; /* Adjust size: 50% width, auto height */
+  background-size: 60% auto; /* Adjust size: 50% width, auto height */
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1; /* Ensure the image stays behind the content */
@@ -269,19 +267,6 @@ body::before {
   .container {
     padding-top: 50px;
   }
-}
-
-.container {
-  /* Add padding-top for mobile devices */
-  padding-top: 50px;
-}
-
-/* Adjustments for iPhone 15 Pro Max */
-@media only screen 
-  and (device-width: 428px) 
-  and (device-height: 926px) 
-  and (-webkit-device-pixel-ratio: 3)
-  and (orientation: portrait) {
   .slide-fade-enter-active {
     transition: all 0.2s ease-out;
   }
@@ -326,6 +311,12 @@ body::before {
     }
   }
 }
+
+.container {
+  /* Add padding-top for mobile devices */
+  padding-top: 50px;
+}
+
 
 /* General styles */
 .bounce-enter-active {
