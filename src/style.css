@@ -13,11 +13,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  /* Add background image */
-  background-image: url('/images/hero.png');
-  background-size: center; /* Make the image cover the entire background */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
 a {
